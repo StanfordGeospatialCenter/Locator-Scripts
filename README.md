@@ -1,4 +1,4 @@
-# Locator-Scripts
+# Locator.stanford.edu Geocoding Scripts for Python or R
 
 ## Overview
 
@@ -16,7 +16,7 @@ The [Stanford ArcGIS Locator Service](https://locator.stanford.edu/) provides ge
 
 ---
 
-## Repository Structure
+## Repository Content
 
 ### Data Files
 
@@ -28,6 +28,11 @@ The [Stanford ArcGIS Locator Service](https://locator.stanford.edu/) provides ge
   - `Postal`: ZIP code  
   - (Other columns may be present but are not required by the geocoder)
 
+- **Data/199Addresses.csv**  
+  A smaller CSV file with 199 address records, useful for testing or demonstration of the geocoding workflow.  
+  **Columns:**  
+  - Same as above (`OBJECTID`, `Address`, `Postal`, etc.)
+
 - **Data/geocoded_addresses01.csv**, **Data/geocoded_addresses02.csv**, ...  
   Output files containing geocoded results.  
   **Columns:**  
@@ -37,7 +42,7 @@ The [Stanford ArcGIS Locator Service](https://locator.stanford.edu/) provides ge
 
 ### Code Files
 
-- **locator_geocode_Script.R**  
+## **locator_geocode_Script.R**  
   Main R script for batch geocoding.  
   **Features:**  
   - Reads input CSV of addresses.
@@ -59,27 +64,32 @@ The [Stanford ArcGIS Locator Service](https://locator.stanford.edu/) provides ge
   2. Run the script in R.
   3. Monitor progress and find results in the specified output CSV.
 
----
+## **locator_batch_geocode_rest.ipynb**  
+  Jupyter Notebook for batch geocoding using the Stanford ArcGIS Locator REST API.  
+  **Features:**  
+  - Step-by-step workflow for reading address CSVs, submitting batches to the API, and writing results.
+  - Heavily commented and beginner-friendly, with markdown explanations for each step.
+  - Progress reporting, error handling, and final statistics.
+  - Parameters for input/output file paths, batch size, and API endpoint are easily configurable in notebook cells.
+  - Suitable for interactive exploration and demonstration.
 
-## How to Use
-
-1. Place your input addresses in `Data/oneMillionAddresses.csv` (or edit the script to use your file).
-2. Run `locator_geocode_Script.R` in R.
-3. The script will process the addresses in batches, geocode them, and write the results to a CSV in the `Data/` folder.
-4. Review the output CSV for geocoding results.
+## **locator_json_to_geojson_address_geocode_rest.ipynb**  
+  Jupyter Notebook for converting ArcGIS geocoding JSON results to GeoJSON format.  
+  **Features:**  
+  - Reads JSON output from the ArcGIS geocoding service.
+  - Transforms the results into standard GeoJSON for use in GIS applications or mapping tools.
+  - Useful for spatial analysis, visualization, or further processing of geocoded data.
 
 ---
 
 ## Notes
 
-- The script is designed for beginning R users and is heavily commented.
-- The Stanford Locator API may require Stanford network access or VPN.
+- The scripts and notebooks are designed for beginning users and are heavily commented.
+- The Stanford Locator API requires a Stanford network connection or VPN.
 - For large jobs, adjust `chunk_size` and `job_size` as needed.
 - Output CSV columns may vary depending on the locator's response.
+- The notebooks provide interactive, step-by-step workflows and are suitable for demonstration or teaching.
 
 ---
 
-## License
-
-This repository is for educational and research use. Please respect the terms of use for the Stanford Locator Service and any data you process.
 
