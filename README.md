@@ -33,10 +33,6 @@ The [Stanford ArcGIS Locator Service](https://locator.stanford.edu/) provides ge
   **Columns:**  
   - Same as above (`OBJECTID`, `Address`, `Postal`, etc.)
 
-- **Data/geocoded_addresses01.csv**, **Data/geocoded_addresses02.csv**, ...  
-  Output files containing geocoded results.  
-  **Columns:**  
-  - Various geocoding result fields such as `ResultID`, `Status`, `Score`, `Match_addr`, `X`, `Y`, etc.
 
 ---
 
